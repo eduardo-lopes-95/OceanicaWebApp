@@ -42,7 +42,9 @@ You can find the most recent version of this guide [here](https://github.com/fac
 - [Integrating with an API Backend](#integrating-with-an-api-backend)
   - [Node](#node)
   - [Ruby on Rails](#ruby-on-rails)
-- [Proxying API Requests in Development](#proxying-api-requests-in-development)
+- [
+
+ing API Requests in Development](#proxying-api-requests-in-development)
   - ["Invalid Host Header" Errors After Configuring Proxy](#invalid-host-header-errors-after-configuring-proxy)
   - [Configuring the Proxy Manually](#configuring-the-proxy-manually)
   - [Configuring a WebSocket Proxy](#configuring-a-websocket-proxy)

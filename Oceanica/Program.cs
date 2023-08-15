@@ -57,40 +57,4 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-var spaPath = "/";
-if (app.Environment.IsDevelopment())
-{
-    app.MapWhen(y => y.Request.Path.StartsWithSegments(spaPath), client =>
-    {
-        client.UseSpa(spa =>
-        {
-            spa.UseProxyToSpaDevelopmentServer("https://localhost:44498");
-        });
-    });
-}
-else
-{
-    app.Map(new PathString(spaPath), client =>
-    {
-        client.UseSpaStaticFiles();
-        client.UseSpa(spa => {
-            spa.Options.SourcePath = "clientapp";
-
-            spa.Options.DefaultPageStaticFileOptions = new StaticFileOptions
-            {
-                OnPrepareResponse = ctx =>
-                {
-                    var headers = ctx.Context.Response.GetTypedHeaders();
-                    headers.CacheControl = new Microsoft.Net.Http.Headers.CacheControlHeaderValue
-                    {
-                        NoCache = true,
-                        NoStore = true,
-                        MustRevalidate = true
-                    };
-                }
-            };
-        });
-    });
-}
-
 app.Run();

@@ -17,7 +17,12 @@
     },
     "Docker": {
       "commandName": "Docker",
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:44498",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.SpaProxy"
+      },
       "publishAllPorts": true,
       "useSSL": true
     }
